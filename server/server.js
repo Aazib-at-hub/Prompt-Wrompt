@@ -7,12 +7,10 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-  origin: "*",
-  methods: ["GET","POST","OPTIONS"]
-allowedHeaders: ["Content-Type" , "Authorization"]
+  origin: "https://prompt-wrompt.vercel.app",
+  methods: ["GET", "POST", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
 }));
-
-app.options("*" , cors());
 
 app.use(express.json());
 
