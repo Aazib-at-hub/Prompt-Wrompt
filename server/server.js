@@ -4,6 +4,15 @@ import dotenv from "dotenv";
 import { Client } from "@notionhq/client";
 
 dotenv.config();
+const app = express();
+
+app.use(cors({
+  origin: "*",
+  methods: ["GET","POST","OPTIONS"]
+allowedHeaders: ["Content-Type" , "Authorization"]
+}));
+
+app.use(express.json());
 
 const { NOTION_API_KEY, NOTION_DATABASE_ID, PORT = 3000 } = process.env;
 
@@ -16,17 +25,6 @@ if (!NOTION_DATABASE_ID) {
 }
 
 const notion = new Client({ auth: NOTION_API_KEY });
-const app = express();
-
-app.use(cors({
-  origin: "*";
-  methods: ["GET","POST","OPTIONS"]
-allowedHeaders: ["Content-Type" , "Authorization"]
-}));
-
-app.options("*" , cors());
-app.use(express.json());
-
 const logDatabaseSchema = async () => {
   try {
     const database = await notion.databases.retrieve({
