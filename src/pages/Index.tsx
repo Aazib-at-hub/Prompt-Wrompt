@@ -18,7 +18,7 @@ const Index = () => {
   useEffect(() => {
     const fetchPrompts = async () => {
       try {
-        const response = await fetch("https://prompt-wrompt2.onrender.com/api/prompts");
+        const response = await fetch(" https://prompt-wrompt.onrender.com/api/prompts");
         if (!response.ok) throw new Error("Unable to fetch prompts");
         const data: Prompt[] = await response.json();
 
