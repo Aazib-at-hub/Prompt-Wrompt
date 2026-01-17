@@ -12,6 +12,8 @@ app.use(cors({
 allowedHeaders: ["Content-Type" , "Authorization"]
 }));
 
+app.options("*" , cors());
+
 app.use(express.json());
 
 const { NOTION_API_KEY, NOTION_DATABASE_ID, PORT = 3000 } = process.env;
