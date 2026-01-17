@@ -18,7 +18,13 @@ if (!NOTION_DATABASE_ID) {
 const notion = new Client({ auth: NOTION_API_KEY });
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: "*";
+  methods: ["GET","POST","OPTIONS"]
+allowedHeaders: ["Content-Type" , "Authorization"]
+}));
+
+app.options("*" , cors());
 app.use(express.json());
 
 const logDatabaseSchema = async () => {
