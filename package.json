@@ -4,11 +4,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "npm-run-all --parallel dev:client dev:server",
+    "dev:client": "vite",
+    "dev:server": "npm --prefix server run dev",
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-      "preview": "vite preview",
+    "preview": "vite preview",
     "start": "vite preview --host 0.0.0.0 --port ${PORT:-4173}"
   },
   "dependencies": {
@@ -70,6 +72,7 @@
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^15.15.0",
     "lovable-tagger": "^1.1.13",
+    "npm-run-all": "^4.1.5",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.14",
     "typescript": "^5.8.3",

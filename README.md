@@ -82,6 +82,15 @@ PORT=3000
 ### Install & Run
 
 ```sh
+npm install
+npm run dev
+```
+
+This single command starts both the Vite frontend on `http://localhost:5173` and the Notion-backed API on `http://localhost:3000`.
+
+If you prefer to run just the backend API manually:
+
+```sh
 cd server
 npm install
 npm run dev
