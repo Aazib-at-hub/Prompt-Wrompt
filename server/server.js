@@ -1,28 +1,18 @@
-// import express from "express";
-// import cors from "cors";
-// import dotenv from "dotenv";
-// import { Client } from "@notionhq/client";
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import { Client } from "@notionhq/client";
 
-// dotenv.config();
+ dotenv.config();
 const app = express();
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://prompt-wrompt.vercel.app");
-  res.header("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-
-  if (req.method === "OPTIONS") {
-    return res.sendStatus(200);
-  }
-
-  next();
-});
 
 
-// app.use(cors({
-//   origin: "https://prompt-wrompt.vercel.app",
-//   methods: ["GET", "POST", "OPTIONS"],
-//   allowedHeaders: ["Content-Type", "Authorization"],
-// }));
+
+ app.use(cors({
+   origin: "https://prompt-wrompt.vercel.app",
+     methods: ["GET", "POST", "OPTIONS"],
+      allowedHeaders: ["Content-Type", "Authorization"],
+ }));
 
 app.use(express.json());
 
